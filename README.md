@@ -1,5 +1,7 @@
 # Fe–N CIF inspector
 
+[![tests](https://github.com/matinnr/fe-n-cif-inspector/actions/workflows/tests.yml/badge.svg)](https://github.com/matinnr/fe-n-cif-inspector/actions/workflows/tests.yml)
+
 An interactive crystallographic-analysis dashboard for iron coordination
 compounds, focused on the Fe–N coordination sphere and the structural
 fingerprints of spin-crossover (SCO) chemistry. Built on Streamlit +
