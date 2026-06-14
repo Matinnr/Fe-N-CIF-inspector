@@ -1,0 +1,66 @@
+# Tests the analysis modules in isolation from the CCDC Python API.
+#
+# The CCDC API is proprietary and isn't available on GitHub runners, so
+# this workflow only exercises tests that don't actually parse a CIF.
+# Specifically we run the pure-math modules — bvs, esd, geometry, the
+# data schema, the library loader, the plotting helpers, and the
+# pure-helper tests inside single_cif. Tests that require a CCDC parse
+# (test_cif_reader, test_fe_n_analysis, test_cohort, test_disorder,
+# test_provenance, plus some sections of others) are run locally with
+# `make test`; they're not in CI because the runner has no CCDC env.
+#
+# Locally (with the CCDC interpreter available), the full suite is
+# 209 tests across all of the above.
+
+name: tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  unit-tests:
+    name: pure-Python unit tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Python deps (no ccdc)
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            streamlit plotly pandas numpy \
+            pytest pytest-cov
+
+      - name: Run CCDC-free test files
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest \
+            tests/test_bvs.py \
+            tests/test_esd.py \
+            tests/test_geometry.py \
+            tests/test_data_schema.py \
+            tests/test_library.py \
+            tests/test_modes_single_cif.py \
+            tests/test_plotting.py \
+            --cov=src.bvs \
+            --cov=src.esd \
+            --cov=src.geometry \
+            --cov=src.data_schema \
+            --cov=src.library \
+            --cov=src.plotting \
+            --cov-report=term-missing \
+            --cov-fail-under=85

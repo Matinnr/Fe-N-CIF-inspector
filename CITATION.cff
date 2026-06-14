@@ -1,0 +1,161 @@
+cff-version: 1.2.0
+title: Fe-N CIF inspector
+message: >-
+  If you use this dashboard in a publication, please cite the
+  underlying scientific methods listed in `references` below in
+  addition to this software entry.
+type: software
+authors:
+  - given-names: Matin
+    family-names: Raziqi
+abstract: >-
+  Interactive crystallographic-analysis dashboard for iron
+  coordination compounds. Computes Fe-N distances with esds,
+  octahedral distortion parameters (zeta, Delta, Sigma, Theta),
+  tau-5 / tau-4 coordination-geometry classification, bond-valence
+  sums with spin-state-specific R0 values, and a refinement-quality
+  badge. Built on Streamlit, Plotly, and the CCDC CSD Python API.
+keywords:
+  - crystallography
+  - iron
+  - spin crossover
+  - coordination chemistry
+  - bond valence sum
+  - octahedral distortion
+  - CIF
+license: MIT
+references:
+  - type: article
+    authors:
+      - family-names: McCusker
+        given-names: J. K.
+      - family-names: Rheingold
+        given-names: A. L.
+      - family-names: Hendrickson
+        given-names: D. N.
+    title: "Variable temperature structural studies of spin-crossover Fe(II) complexes"
+    journal: Inorganic Chemistry
+    year: 1996
+    volume: 35
+    start: 2100
+    notes: "Original definition of Sigma and the zeta / Delta parameters."
+  - type: article
+    authors:
+      - family-names: Marchivie
+        given-names: M.
+      - family-names: Guionneau
+        given-names: P.
+      - family-names: Letard
+        given-names: J.-F.
+      - family-names: Chasseau
+        given-names: D.
+    title: "Towards direct correlations between spin-crossover and structural features in iron(II) complexes"
+    journal: Acta Crystallographica Section B
+    year: 2005
+    volume: 61
+    start: 25
+    notes: "Original definition of the Theta parameter."
+  - type: article
+    authors:
+      - family-names: Ketkaew
+        given-names: R.
+      - family-names: Tantirungrotechai
+        given-names: Y.
+      - family-names: Harding
+        given-names: P.
+      - family-names: Chastanet
+        given-names: G.
+      - family-names: Guionneau
+        given-names: P.
+      - family-names: Marchivie
+        given-names: M.
+      - family-names: Harding
+        given-names: D. J.
+    title: "OctaDist: a tool for calculating distortion parameters in spin crossover and coordination complexes"
+    journal: Dalton Transactions
+    year: 2021
+    volume: 50
+    start: 1086
+    notes: "Theta algorithm specification used in this dashboard."
+  - type: article
+    authors:
+      - family-names: Addison
+        given-names: A. W.
+      - family-names: Rao
+        given-names: T. N.
+      - family-names: Reedijk
+        given-names: J.
+      - family-names: van Rijn
+        given-names: J.
+      - family-names: Verschoor
+        given-names: G. C.
+    title: "Synthesis, structure, and spectroscopic properties of copper(II) compounds containing nitrogen-sulphur donor ligands"
+    journal: Journal of the Chemical Society Dalton Transactions
+    year: 1984
+    start: 1349
+    notes: "Tau-5 parameter for 5-coordinate geometry classification."
+  - type: article
+    authors:
+      - family-names: Yang
+        given-names: L.
+      - family-names: Powell
+        given-names: D. R.
+      - family-names: Houser
+        given-names: R. P.
+    title: "Structural variation in copper(I) complexes with pyridylmethylamide ligands"
+    journal: Dalton Transactions
+    year: 2007
+    start: 955
+    notes: "Tau-4 parameter for 4-coordinate geometry classification."
+  - type: article
+    authors:
+      - family-names: Brown
+        given-names: I. D.
+      - family-names: Altermatt
+        given-names: D.
+    title: "Bond-valence parameters obtained from a systematic analysis of the Inorganic Crystal Structure Database"
+    journal: Acta Crystallographica Section B
+    year: 1985
+    volume: 41
+    start: 244
+    notes: "Original universal R0 table for the bond-valence model."
+  - type: article
+    authors:
+      - family-names: Brese
+        given-names: N. E.
+      - family-names: O'Keeffe
+        given-names: M.
+    title: "Bond-valence parameters for solids"
+    journal: Acta Crystallographica Section B
+    year: 1991
+    volume: 47
+    start: 192
+    notes: "R0 anion extension."
+  - type: article
+    authors:
+      - family-names: Liebschner
+        given-names: D.
+      - family-names: Yamada
+        given-names: Y.
+      - family-names: Matsugaki
+        given-names: N.
+      - family-names: Senda
+        given-names: M.
+      - family-names: Senda
+        given-names: T.
+    title: "Bond-valence analysis of iron centres in proteins"
+    journal: Acta Crystallographica Section D
+    year: 2017
+    volume: 73
+    start: 148
+    notes: "Spin-state-specific R0 for Fe-N: used as defaults in this dashboard."
+  - type: article
+    authors:
+      - family-names: Halcrow
+        given-names: M. A.
+    title: "Structure:function relationships in molecular spin-crossover complexes"
+    journal: Chemical Society Reviews
+    year: 2011
+    volume: 40
+    start: 4119
+    notes: "Typical Sigma and bond-length ranges for Fe(II)/Fe(III) LS/HS used in the reference bands."

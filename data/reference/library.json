@@ -1,0 +1,315 @@
+{
+  "schema_version": "1",
+  "_comment_for_humans": [
+    "Curated reference structures for teaching. Each entry is one card",
+    "in Mode 3's gallery. To add an entry: drop the CIF into this",
+    "folder and append a new object to the 'entries' array below.",
+    "",
+    "The three entries below are seeded with synthetic test fixtures",
+    "so the gallery is non-empty even before real COD CIFs are bundled.",
+    "Replace them as you accumulate licensed-for-redistribution CIFs.",
+    "",
+    "Shortlist of real compounds to bundle next:",
+    "  * [Fe(phen)3]2+         Fe(II) LS, polypyridyl                  ",
+    "  * [Fe(pyz)2(NCS)2]      SCO LS/HS pair (Hofmann-type)            ",
+    "  * [Fe(salen)Cl]          Fe(III) N2O2 mixed donors                 ",
+    "  * [Fe(bpp)2]2+ Z'=2     Halcrow SCO standard with mixed spin    ",
+    "  * Fe-porphyrin 5-coord  for tau_5 teaching                       ",
+    "  * [Fe(H2O)6]2+           'no Fe-N here' contrast                  ",
+    "All COD-sourced; CC0; just need real COD IDs and a download pass."
+  ],
+  "entries": [
+    {
+      "id": "demo_perfect_oct",
+      "cif_filename": "demo_perfect_oct.cif",
+      "display_name": "Perfect FeN₆ octahedron (synthetic)",
+      "compound_class": "synthetic test fixture",
+      "oxidation_state": null,
+      "spin_state": null,
+      "temperature_K": 100.0,
+      "cod_id": null,
+      "doi": null,
+      "license": "Project test fixture — not from a published source.",
+      "description": "Six N atoms at ±2.00 Å along ±x, ±y, ±z. Every distortion parameter is exactly zero. Useful as the regression baseline: any deviation in ζ, Σ, or Θ here means something has broken upstream.",
+      "teaching_notes": [
+        "All six Fe–N distances are exactly 2.000 Å, so ζ = 0.000 Å and Δ = 0.00.",
+        "Every cis N–Fe–N angle is 90° and every trans angle is 180°, so Σ = 0.00°.",
+        "The octahedral projection is perfect, so Θ = 0.00°.",
+        "No real published structure reaches this ideal; the card is a regression baseline, so any non-zero ζ, Σ, or Θ when it loads points to a parser problem rather than chemistry."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.000,
+        "sigma_deg_approx": 0.0,
+        "theta_deg_approx": 0.0
+      }
+    },
+    {
+      "id": "demo_fe_n6_typical",
+      "cif_filename": "demo_fe_n6.cif",
+      "display_name": "Typical FeN₆ (synthetic provenance demo)",
+      "compound_class": "synthetic test fixture",
+      "oxidation_state": null,
+      "spin_state": null,
+      "temperature_K": 100.0,
+      "cod_id": null,
+      "doi": "10.9999/test.demo.doi",
+      "license": "Project test fixture — not from a published source.",
+      "description": "Same geometry as the perfect octahedron but with full provenance metadata so the Provenance + refinement-quality panel populates. R = 3.50%, GooF = 1.030, data/parameter = 15. This is what a green-badge refinement looks like.",
+      "teaching_notes": [
+        "Same ideal FeN₆ geometry as the perfect-octahedron card, but carrying full provenance: R = 3.50%, GooF = 1.030, data/parameter = 15.",
+        "These statistics — R < 5%, data/parameter > 8, no disorder — define the high-confidence 'good refinement' band.",
+        "The provenance and refinement-quality panel reads these fields directly; this entry is the worked example of a clean, green-badge refinement."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.000,
+        "R_factor_pct": 3.5
+      }
+    },
+    {
+      "id": "demo_disordered",
+      "cif_filename": "demo_disordered.cif",
+      "display_name": "Disordered FeN₆ (assembly A, two components)",
+      "compound_class": "synthetic test fixture",
+      "oxidation_state": null,
+      "spin_state": null,
+      "temperature_K": 100.0,
+      "cod_id": null,
+      "doi": null,
+      "license": "Project test fixture — not from a published source.",
+      "description": "One N atom split across two disorder components (N3 occupancy 0.7, N3B occupancy 0.3, both in disorder assembly A). Useful for demonstrating the 'Use major component only' vs 'Use all components' toggle and the side-by-side mean comparison.",
+      "teaching_notes": [
+        "One coordinating N is modelled over two sites: N3 at 0.7 occupancy and N3B at 0.3, both in disorder assembly A.",
+        "Because the disordered atom coordinates the Fe, the mean Fe–N differs between the 'major component only' and 'all components' treatments — the two give genuinely different numbers here.",
+        "Contrast with disorder on non-coordinating atoms (porphyrin meso-OH groups, lattice solvent), where the treatment chosen leaves the Fe–N mean unchanged."
+      ],
+      "expected_metrics": {}
+    },
+    {
+      "id": "lit_fe_ii_ls_polypyridyl",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(II) LS · polypyridyl",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(II)",
+      "spin_state": "LS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1039/c1cs15046d",
+      "license": "Aggregated published values from Halcrow, Chem. Soc. Rev. 2011.",
+      "description": "Published-typical metrics for low-spin Fe(II) in non-macrocyclic polypyridyl environments — [Fe(phen)₃]²⁺, [Fe(bpy)₃]²⁺, [Fe(terpy)₂]²⁺, [Fe(bpp)₂]²⁺.",
+      "teaching_notes": [
+        "Mean Fe–N of 1.94–2.00 Å is the low-spin signature: the t₂g⁶ configuration gives short, strong Fe–N bonds.",
+        "Σ is typically 30–60°. The chelate rings fix the bite angles but, without a rigid macrocycle, still allow noticeable angular flex, so Σ rarely drops below ~20°.",
+        "Θ is moderate (~50–90°) — some trigonal twist, far less than the high-spin state.",
+        "BVS with the Liebschner R₀ = 1.78 commonly overshoots to ~3.5 — a documented limitation of that R₀ for LS Fe(II), not bad chemistry.",
+        "Many of these complexes are spin-crossover: below T₁/₂ they sit at these LS metrics; warmed above T₁/₂ the same compound expands into the high-spin, high-Σ geometry."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 1.96,
+        "sigma_deg": 40,
+        "theta_deg": 80,
+        "zeta_A": 0.03
+      }
+    },
+    {
+      "id": "lit_fe_ii_hs_polypyridyl",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(II) HS · polypyridyl",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(II)",
+      "spin_state": "HS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1039/c1cs15046d",
+      "license": "Aggregated published values from Halcrow, Chem. Soc. Rev. 2011.",
+      "description": "Published-typical metrics for high-spin Fe(II) — the HS state of polypyridyl SCO compounds at room temperature.",
+      "teaching_notes": [
+        "Mean Fe–N of 2.15–2.25 Å is the canonical high-spin signature: populating the eg* orbitals lengthens every Fe–N bond by ~0.2 Å versus low spin.",
+        "Σ rises to 80–140° as the chelate framework relaxes out of the compact LS geometry into the larger HS coordination sphere.",
+        "Θ is large and variable (~300–500°) — the LS→HS expansion brings substantial trigonal twist.",
+        "At room temperature this is the HS form of a spin-crossover compound; a complex that keeps this geometry even below ~200 K is high-spin-only rather than SCO."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.18,
+        "sigma_deg": 100,
+        "theta_deg": 400,
+        "zeta_A": 0.05
+      }
+    },
+    {
+      "id": "lit_fe_ii_ls_porphyrin",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(II) LS · porphyrin / macrocycle",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(II)",
+      "spin_state": "LS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1021/ja00528a014",
+      "license": "Aggregated published values, Scheidt-group iron-porphyrin tabulations.",
+      "description": "Published-typical metrics for Fe(II) LS porphyrin / phthalocyanine / corrole — [Fe(porphyrin)(L)₂] systems. The macrocycle locks the in-plane angles, so Σ is far below the polypyridyl LS band.",
+      "teaching_notes": [
+        "Mean Fe–N is ~1.99 Å, much like polypyridyl LS, but Σ collapses to ~10–20°.",
+        "The rigid macrocycle — not the spin state — drives Σ this low: the four pyrrole N atoms are held in a near-perfect plane, leaving little angular freedom.",
+        "BVS overshoots more severely here than for polypyridyl; the porphyrin literature routinely tunes R₀ down to ~1.72 to compensate.",
+        "These complexes are usually low-spin only — the macrocycle resists the bond elongation needed to reach high spin, so they don't show spin-crossover."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 1.99,
+        "sigma_deg": 12,
+        "theta_deg": 18,
+        "zeta_A": 0.02
+      }
+    },
+    {
+      "id": "lit_fe_iii_ls",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(III) LS",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(III)",
+      "spin_state": "LS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1039/c1cs15046d",
+      "license": "Aggregated published values from Halcrow, Chem. Soc. Rev. 2011.",
+      "description": "Published-typical metrics for low-spin Fe(III) — cyanide-bound met-haem analogues, [Fe(phen)₃]³⁺, [Fe(bpy)₃]³⁺, and similar strong-field Fe(III) complexes.",
+      "teaching_notes": [
+        "Mean Fe–N sits in 1.94–2.00 Å, essentially the same as Fe(II) LS — bond length alone can't separate the two oxidation states.",
+        "Σ is typically 20–70°, often a touch more ordered than Fe(II) LS.",
+        "BVS with the Liebschner R₀ = 1.70 lands close to 3 — the cleanest BVS agreement of any Fe oxidation/spin combination.",
+        "Counterion charge balance in the published model is the only definitive way to tell Fe(III) LS from Fe(II) LS at this bond length."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 1.97,
+        "sigma_deg": 35,
+        "theta_deg": 50,
+        "zeta_A": 0.02
+      }
+    },
+    {
+      "id": "lit_fe_iii_hs",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(III) HS",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(III)",
+      "spin_state": "HS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1039/c1cs15046d",
+      "license": "Aggregated published values from Halcrow, Chem. Soc. Rev. 2011.",
+      "description": "Published-typical metrics for high-spin Fe(III) — salen-type and tris-pyridyl Fe(III) at room temperature, plus high-spin states of Fe(III) SCO compounds.",
+      "teaching_notes": [
+        "Mean Fe–N of 2.05–2.15 Å — between Fe(II) LS (~1.97) and Fe(II) HS (~2.18).",
+        "Σ is 60–100°: less twisted than Fe(II) HS, but more than any low-spin form.",
+        "It sits halfway up the spin-state bond-length axis and overlaps with intermediate-temperature Fe(II), so the oxidation state has to come from the chemical model rather than the metrics alone."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.08,
+        "sigma_deg": 80,
+        "theta_deg": 200,
+        "zeta_A": 0.04
+      }
+    },
+    {
+      "id": "lit_fe_ii_hs_monodentate",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(II) HS · monodentate hexakis(N-donor)",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(II)",
+      "spin_state": "HS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": null,
+      "license": "Aggregated published values from hexakis(N-donor) Fe(II) salts.",
+      "description": "Published-typical metrics for high-spin Fe(II) with six monodentate N-donor ligands — [Fe(NMeIm)₆]²⁺, [Fe(imidazole)₆]²⁺, [Fe(pyridine)₆]²⁺, [Fe(H₂O)₆]²⁺-like with N substitutions. Distinct from polypyridyl Fe(II) HS because the absence of chelate bite-angle strain keeps Σ much lower.",
+      "teaching_notes": [
+        "Mean Fe–N ≈ 2.20 Å — a high-spin bond length, the same as polypyridyl Fe(II) HS.",
+        "Σ ≈ 25–55°, far lower than polypyridyl HS (80–140°): monodentate ligands carry no chelate bite-angle strain, so the six donors settle into near-ideal octahedral angles even in the high-spin state.",
+        "These salts often crystallise on an inversion centre (e.g. P2₁/n, Z′ = 1), which forces the trans N–Fe–N angles to exactly 180° by symmetry.",
+        "The ligand field is too weak for spin-crossover at accessible temperatures — these compounds stay high-spin throughout.",
+        "The fingerprint is the pairing itself: a long, high-spin bond length together with a low Σ — long bonds from the weak field, ordered angles from the absence of chelate strain."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.20,
+        "sigma_deg": 35,
+        "theta_deg": 60,
+        "zeta_A": 0.05
+      }
+    },
+    {
+      "id": "lit_fe_iii_ls_porphyrin",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(III) LS · porphyrin / heme (CN-met)",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(III)",
+      "spin_state": "LS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1021/cr9500744",
+      "license": "Aggregated heme-protein and Fe(III) porphyrin tabulations (Scheidt and Reed reviews).",
+      "description": "Published-typical metrics for low-spin Fe(III) porphyrins — cyanide-bound met-myoglobin, imidazole-bis-Fe(III)(porph) systems, and similar strong-field axial ligand environments. The macrocycle constrains the in-plane geometry, so Σ is in the porphyrin band rather than the polypyridyl band.",
+      "teaching_notes": [
+        "Mean Fe–N(porph) ≈ 1.97 Å with axial Fe–N(L) ≈ 1.98–2.02 Å.",
+        "Σ stays below 20° because the macrocycle locks the four in-plane N atoms.",
+        "Bond lengths are almost identical to Fe(II) LS porphyrin; counterion charge balance is what distinguishes the two.",
+        "BVS with the Liebschner R₀ = 1.70 lands close to 3 — usually the cleanest BVS match across all Fe combinations.",
+        "Cyanide-axial systems are a benchmark of low-spin Fe(III) reactivity; imidazole-bis systems model protein heme."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 1.97,
+        "sigma_deg": 12,
+        "theta_deg": 18,
+        "zeta_A": 0.02
+      }
+    },
+    {
+      "id": "lit_fe_iii_hs_porphyrin",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "Textbook Fe(III) HS · porphyrin / heme (aqua-met / 5-coord)",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": "Fe(III)",
+      "spin_state": "HS",
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": "10.1021/cr9500744",
+      "license": "Aggregated heme-protein and Fe(III) porphyrin tabulations (Scheidt and Reed reviews).",
+      "description": "Published-typical metrics for high-spin Fe(III) porphyrins — aqua-met-myoglobin, fluoride-met-Hb, halide-Fe(III)(porph) systems, and 5-coordinate Fe(III) porphyrin chlorides. The macrocycle still constrains the angular geometry but the Fe sits out of the porphyrin mean plane in HS.",
+      "teaching_notes": [
+        "Mean Fe–N(porph) ≈ 2.05–2.07 Å — longer than LS Fe(III) porphyrin (~1.97), shorter than Fe(II) HS polypyridyl (~2.18).",
+        "Often 5-coordinate (deoxy / aqua), giving n_FeN = 5 with a small τ₅ (square pyramidal).",
+        "Σ stays low (~15–25°): the porphyrin macrocycle still locks the in-plane angles even when the Fe is displaced out of the mean plane.",
+        "Fe-out-of-plane displacement is the classic high-spin heme signature — ~0.4–0.5 Å in deoxy-Mb, less in 6-coordinate aqua-met."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.06,
+        "sigma_deg": 18,
+        "theta_deg": 25,
+        "zeta_A": 0.03
+      }
+    },
+    {
+      "id": "lit_fe_5coord",
+      "cif_filename": "(literature_template).cif",
+      "display_name": "5-coordinate Fe · square-pyramidal regime",
+      "compound_class": "Literature template (no CIF — comparison target)",
+      "oxidation_state": null,
+      "spin_state": null,
+      "temperature_K": null,
+      "cod_id": null,
+      "doi": null,
+      "license": "Aggregated typical values for 5-coordinate Fe complexes (Addison 1984 + Scheidt heme tabulations).",
+      "description": "Published-typical metrics for 5-coordinate Fe in the square-pyramidal regime. With only five Fe–N bonds, Σ and Θ (which need six ligands) are undefined, so τ₅ is the geometry parameter that applies. Covers deoxy-Mb-like 5-coordinate heme, square-pyramidal Fe(III) salen·X, and assorted 5-coordinate scorpionate complexes.",
+      "teaching_notes": [
+        "n_FeN = 5, so the relevant geometry parameter is τ₅ (Addison) rather than Σ/Θ, which require six ligands.",
+        "τ₅ ≤ 0.20 → square pyramidal (most published 5-coordinate Fe falls here).",
+        "τ₅ ≥ 0.80 → trigonal bipyramidal (less common for Fe with N-donors).",
+        "0.20 < τ₅ < 0.80 → distorted, common when the apical ligand is bent or sterically crowded.",
+        "Bond length varies widely by ligand class — ~1.97 Å for Fe(III) LS heme(CN) up to ~2.10 Å for Fe(II) HS deoxy-heme — so τ₅ captures the shape while bond length and oxidation state pin down the chemistry."
+      ],
+      "expected_metrics": {
+        "mean_FeN_A": 2.05,
+        "n_FeN": 5,
+        "tau5": 0.10
+      }
+    }
+  ]
+}

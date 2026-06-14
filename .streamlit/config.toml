@@ -1,0 +1,33 @@
+# Streamlit theme for the Fe–N CIF inspector.
+#
+# Goal: read as a sober scientific instrument, not a default Streamlit
+# app. The single biggest "this is a stock Streamlit app" tell is the
+# default coral accent (#FF4B4B); we replace it with a muted steel-blue
+# and tighten the rounded-corner defaults so the UI feels less bubbly.
+# All values are conservative and high-contrast for dense tables/plots.
+
+[theme]
+base = "light"
+
+# Muted steel/petrol blue — used on sliders, selected radios, links,
+# primary buttons, focus rings. Calm and legible on white (AA contrast).
+primaryColor = "#2F6F8F"
+
+# Clean white canvas so dataframes and Plotly charts (white plot area)
+# sit flush without a tone mismatch.
+backgroundColor = "#FFFFFF"
+
+# Sidebar, bordered containers, code blocks — a faint cool grey that
+# separates panels without drawing attention.
+secondaryBackgroundColor = "#EEF2F4"
+
+# Near-black, very slightly softened for long reading sessions.
+textColor = "#1B2127"
+
+# Subtle hairline on bordered containers / inputs instead of Streamlit's
+# heavier default — closer to a lab-instrument panel.
+borderColor = "#D7DEE3"
+
+# Tighten the corner radius: medium (default) looks consumer-app; small
+# reads more like a technical tool.
+baseRadius = "small"
